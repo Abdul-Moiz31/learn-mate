@@ -6,6 +6,7 @@ import Link from "next/link";
 const Appbar = () => {
   return (
     <AppBar>
+    
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box flexGrow={1} display="flex" justifyContent="center">
           <Link href={"/"} style={{ textDecoration: "none" }}>
