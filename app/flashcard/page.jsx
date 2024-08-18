@@ -11,6 +11,7 @@ import Navbar from "../components/Navbar";
 import Frontcards from "../components/Frontcards";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
+import Turncards from "../components/Turncards";
 
 export default function Flashcard() {
   const router = useRouter();
@@ -48,7 +49,7 @@ export default function Flashcard() {
   return (
     <Box>
       <Navbar />
-      <Container maxWidth="md">
+      <Container maxWidth="md ">
       <Typography variant="h2" sx={{ my: 4 }}>
           {search}
         </Typography>
@@ -57,7 +58,6 @@ export default function Flashcard() {
           sx={{
             p: 4,
             align: "center",
-            backgroundColor: (theme) => theme.palette.tangaroa[200],
           }}
         >
           <Typography variant="p" component="div">
