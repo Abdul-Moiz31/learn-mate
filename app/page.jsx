@@ -17,6 +17,7 @@ export default function Home() {
           flexDirection={"column"}
           justifyContent={"center"}
           paddingLeft={"15%"}
+          paddingTop={"10%"}
         >
           <Typography variant="h1" gutterBottom>
             Rise to <br /> Challenge
