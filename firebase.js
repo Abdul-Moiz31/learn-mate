@@ -18,13 +18,20 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBo7C47j-ZxLjhEdYPLzSUR81hrgkoRNs8",
-    authDomain: "learn-mate-e1438.firebaseapp.com",
-    projectId: "learn-mate-e1438",
-    storageBucket: "learn-mate-e1438.appspot.com",
-    messagingSenderId: "89765481839",
-    appId: "1:89765481839:web:312252fc5bb01913a9ac9a",
-    measurementId: "G-G38RQPXTVR"
+  apiKey: "AIzaSyDGo0O9PQWOU7Ampy7viN-ks8XVSA7q0V8",
+
+  authDomain: "pacedream-1f09d.firebaseapp.com",
+
+  projectId: "pacedream-1f09d",
+
+  storageBucket: "pacedream-1f09d.appspot.com",
+
+  messagingSenderId: "630159727060",
+
+  appId: "1:630159727060:web:112571ad5881d0537c1e41",
+
+  measurementId: "G-957JETLKHB"
+
   };
 
 // Initialize Firebase
