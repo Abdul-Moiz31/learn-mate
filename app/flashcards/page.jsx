@@ -66,7 +66,6 @@ const Page = () => {
             sx={{
               p: 4,
               align: "center",
-              backgroundColor: (theme) => theme.palette.tangaroa[200],
             }}
           >
             <Typography variant="p" component="div">

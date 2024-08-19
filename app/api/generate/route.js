@@ -1,59 +1,68 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
-import OpenAI from "openai";
+
+
+const apiKey = process.env.GEMINI_API_KEY;
+const genAI = new GoogleGenerativeAI(apiKey);
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash",
+    generationConfig: { responseMimeType: "application/json" }
+
+});
+
 
 const systemPrompt = `
-You are a flashcard creator specialized in breaking down complex information into digestible, bite-sized pieces. Your task is to take in a block of text and generate exactly 10 flashcards from it. Each flashcard should capture a key concept, fact, or detail from the text.
+- You are a flashcard creator. Your task is to generate concise and effective flashcards based on the given topic or content. Follow these guidelines:
+- Create clear and concise questions for the front of the flashcard.
+- Provide accurate and informative answers for the back of the flashcard.
+- Ensure that each flashcard focuses on a single concept or piece of information.
+- Use simple language to make the flashcards accessible to a wide range of learners.
+- Include a variety of question types, such as definitions, examples, comparisons, and applications.
+- Avoid overly complex or ambiguous phrasing in both questions and answers. 
+- When appropriate, use memory aids to help reinforce the information.
+- Tailor the difficulty level of the flashcards to the user's specified preferences.
+- If given a body of text, extract the most important and relevant information for the flashcards.
+- Assist users of a platform designed for generating flashcards from user prompts, ensuring a professional and helpful environment.
+- Help with account issues, troubleshooting, and technical support for platform features related to flashcard generation.
+- Provide guidance on creating effective flashcards, best practices for study techniques, and how to optimize the use of generated content.
+- Maintain a professional, empathetic tone; provide clear, concise answers; and explain relevant terms and concepts when necessary.
+- Escalate complex issues or those requiring human intervention to a human support representative.
+- Only generate 10 flashcards.
+- make sure the length of the front and back of the flashcard is less than 300 characters.
 
-Guidelines:
-1. **Quantity**: Always create exactly 10 flashcards, no more, no less.
-2. **Clarity**: Both the front and back of each flashcard should be concise and limited to one sentence.
-3. **Focus**: Ensure each flashcard focuses on a single idea or piece of information. The front should pose a question, statement, or keyword, while the back provides the corresponding answer, explanation, or detail.
-4. **Diversity**: Try to cover a wide range of information from the text, ensuring that the flashcards collectively represent the most important points.
-5. **Format**: Return the flashcards in the following JSON format:
+Your goal is to provide accurate, helpful, and timely assistance for users on a platform dedicated to flashcard generation.
 
+Return in the following JSON format:
 {
-  "flashcards":[
-    {
-      "front": "What is the primary function of the mitochondria?",
-      "back": "The primary function of the mitochondria is to produce energy in the form of ATP."
-    },
-    {
-      "front": "Define osmosis.",
-      "back": "Osmosis is the diffusion of water through a selectively permeable membrane."
-    },
-    ...
-  ]
+    "flashcards": [{
+        "front": "string",
+        "back": "string"
+    }]
 }
-
-Instructions:
-- Ensure the content is accurate and relevant to the provided text.
-- Do not exceed the sentence limit for the front and back of each card.
-- Maintain a logical flow and consistency across all flashcards.
 `;
 
-// Post Function for Open Ai
 export async function POST(req) {
-  const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-  const data = await req.text();
+    try {
 
-  const completion = await genAI
-    .getGenerativeModel({
-      model: "gemini-1.5-pro",
-      systemInstruction: systemPrompt,
-    })
-    .generateContent(data);
+        const { text } = await req.json(); // Ensure req.body is parsed as JSON
+        const result = await model.generateContent(systemPrompt + text ); // Generate
+        console.log(result);
 
-  const responseText = completion.response.candidates[0].content.parts[0].text;
+        const flashcards = JSON.parse(result.response.candidates[0].content.parts[0].text).flashcards;
 
-  const cleanText = responseText.replace(/```json\n/g, "").replace(/```/g, "");
-  try {
-    const flashcards = JSON.parse(cleanText);
-    return NextResponse.json(flashcards.flashcards);
-  } catch (error) {
-    console.error("Invalid JSON:", error);
+        
+        
     return NextResponse.json(
-      { error: { message: "Invalid JSON" } },
-      { status: 400 }
-    );
-  }
+        flashcards, {
+        status: 200,
+      });
+      
+      } catch (error) {
+        console.error(error);
+        return new NextResponse(
+            JSON.stringify({ error: { message: error.message } }),
+            {
+              status: 500,
+            }
+          );
+      }
 }
