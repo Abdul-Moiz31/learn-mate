@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Appbar = () => {
   return (
-    <AppBar sx={{ backgroundColor: "#1f2937" }}>
+    <AppBar sx={{ backgroundColor: "#1f2937" ,position:"relative"}} >
     
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         <Box flexGrow={1} display="flex" >
