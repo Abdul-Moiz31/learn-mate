@@ -5,12 +5,13 @@ import Link from "next/link";
 
 const Appbar = () => {
   return (
-    <AppBar>
+    <AppBar sx={{ backgroundColor: "#1f2937" }}>
+    
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Box flexGrow={1} display="flex" justifyContent="center">
+        <Box flexGrow={1} display="flex" >
           <Link href={"/"} style={{ textDecoration: "none" }}>
             <Typography variant="h6" sx={{ color: "white" }}>
-              Learn Mate Decks
+              Learn Mate 
             </Typography>
           </Link>
         </Box>
