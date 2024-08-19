@@ -25,6 +25,7 @@ const Page = () => {
   const router = useRouter();
   const { isLoaded, isSignedIn, user } = useUser();
   const [flashcards, setFlashcards] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (isLoaded) {
@@ -36,14 +37,18 @@ const Page = () => {
 
   useEffect(() => {
     async function getFlashcards() {
+      setLoading(true);
       if (!user) return;
       const docRef = doc(collection(db, "users"), user.id);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
         const flashcards = docSnap.data().flashcards || [];
         setFlashcards(flashcards);
+        setLoading(false);
       } else {
         await setDoc(docRef, { flashcards: [] });
+        setLoading(false);
+
       }
     }
     getFlashcards();
@@ -53,11 +58,11 @@ const Page = () => {
     router.push(`/flashcard?id=${id}`);
   };
 
-  if (!isLoaded && !isSignedIn) return <Loader></Loader>;
+  if ( loading ) return <Loader/>;
   return (
     <Box>
       <Navbar />
-      <Container maxWidth="md">
+      <Container maxWidth="md " sx={{ minHeight:"68vh"}}> 
         <Typography variant="h2" sx={{ my: 4 }}>
           My Flashcards
         </Typography>
@@ -68,7 +73,7 @@ const Page = () => {
               align: "center",
             }}
           >
-            <Typography variant="p" component="div">
+            <Typography variant="p" >
               You don&apos;t have any flashcards yet. <br /> To create one, go
               to the <Link href="/generate">Create Flashcard</Link> page.
             </Typography>
