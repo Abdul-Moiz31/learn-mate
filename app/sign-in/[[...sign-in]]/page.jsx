@@ -7,11 +7,11 @@ export default function SignUpPage() {
   return (
     <>
       {/* Navigation Bar */}
-      <AppBar position="static" sx={{ backgroundColor: "#3f51b5" }}>
+      <AppBar position="static" sx={{ backgroundColor: "#1F2937" }}>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
           <Link href="/" passHref>
-              Flashcard SaaS
+              Learn Mate
             </Link>
           </Typography>
           <Button color="inherit">
