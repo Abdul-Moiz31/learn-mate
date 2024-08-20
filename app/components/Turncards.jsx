@@ -11,7 +11,12 @@ const Turncards = ({ flashcard, index }) => {
   return (
     <Card>
       <CardActionArea onClick={handleCardClick}>
-        <CardContent>
+        <CardContent 
+        sx={{
+          backgroundColor:flipped? "#936DFF":"#fff",
+
+        }}
+        >
           <Box
             sx={{
               perspective: "1000px",
@@ -38,6 +43,7 @@ const Turncards = ({ flashcard, index }) => {
                   padding: 2,
                   boxSizing: "border-box",
                   backgroundColor: "background.paper",
+                  
                 }}
               >
                 <Typography variant="h6" component="div">
@@ -55,8 +61,9 @@ const Turncards = ({ flashcard, index }) => {
                   alignItems: "center",
                   padding: 2,
                   boxSizing: "border-box",
-                  backgroundColor: "background.paper",
+                  backgroundColor: "#936DFF",
                   transform: "rotateY(180deg)",
+                  
                 }}
               >
                 <Typography variant="h6" component="div">

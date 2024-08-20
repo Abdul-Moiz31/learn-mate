@@ -100,7 +100,7 @@ export default function PricingSection() {
     >
       <div className="container grid items-center justify-center gap-12 px-4 md:px-6">
         <div className="space-y-3 text-center">
-          <h1 className="text-4xl  font-semibold text-[#A020F0] ">Pricing for Every Need</h1>
+          <h1 className="text-4xl  font-semibold text-[#936DFF] ">Pricing for Every Need</h1>
           <p className="max-w-lg mx-auto text-lg">
             Choose the plan that fits your learning style and budget. Get
             started with our free Basic plan or unlock more features with our
@@ -126,7 +126,7 @@ export default function PricingSection() {
               className="flex h-full flex-col justify-between bg-white p-4 rounded-lg shadow-md"
             >
               <div>
-                <h2 className="text-xl font-semibold text-black">
+                <h2 className="text-xl font-extrabold text-[#8058ee]">
                   {plan.name}
                 </h2>
                 <p className="text-black">{plan.description}</p>
@@ -148,7 +148,7 @@ export default function PricingSection() {
                 className={`w-full mt-3 py-2 px-4 ${
                   plan.buttonDisabled
                     ? "border border-gray-300 text-black"
-                    : "bg-blue-600 text-white"
+                    : "bg-[#5927e4] text-white"
                 } rounded-lg`}
                 onClick={plan.buttonAction}
                 disabled={plan.buttonDisabled}
