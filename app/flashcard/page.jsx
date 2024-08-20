@@ -17,6 +17,7 @@ export default function Flashcard() {
   const router = useRouter();
   const { isLoaded, isSignedIn, user } = useUser();
   const [flashcards, setFlashcards] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const searchParams = useSearchParams();
   const search = searchParams.get("id");
@@ -30,6 +31,7 @@ export default function Flashcard() {
   }, [isLoaded, router, user]);
 
   useEffect(() => {
+    setLoading(true);
     async function getFlashcard() {
       if (!search || !user) return;
 
@@ -40,11 +42,12 @@ export default function Flashcard() {
         flashcards.push({ id: doc.id, ...doc.data() });
       });
       setFlashcards(flashcards);
+      setLoading(false);
     }
     getFlashcard();
   }, [search, user]);
 
-  if (!isLoaded && !isSignedIn) return <Loader />;
+  if (loading) return <Loader />;
 
   return (
     <Box>

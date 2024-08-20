@@ -6,25 +6,14 @@ import SearchIcon from '@mui/icons-material/Search';
 
 const Appbar = () => {
   return (
-    <AppBar 
-      position="static" 
-      sx={{ 
-        backgroundColor: "#000000", 
-        boxShadow: "none", 
-        padding: { xs: '10px 20px', md: '20px 40px' } 
-      }}
-    >
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        {/* Left Side - Logo and Navigation Links */}
-        <Box display="flex" alignItems="center" gap={4}>
-          <Link href="/" style={{ textDecoration: "none" }}>
-            <Typography variant="h6" sx={{ color: "#936DFF", fontWeight: "bold", fontSize: { xs: '1.25rem', md: '1.5rem' } }}>
-              LearnMate
-            </Typography>
-          </Link>
-          <Link href="/explore" style={{ textDecoration: "none" }}>
-            <Typography sx={{ color: "#D3D3D3", display: { xs: "none", md: "block" }, fontSize: { xs: '1rem', md: '1.125rem' } }}>
-              Explore
+
+    <AppBar sx={{ backgroundColor: "#1f2937" ,position:"relative"}} >
+    
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Box flexGrow={1} display="flex"  >
+          <Link href={"/"} style={{ textDecoration: "none" }}>
+            <Typography variant="h6" sx={{ color: "white" }}>
+              Learn Mate 
             </Typography>
           </Link>
         </Box>

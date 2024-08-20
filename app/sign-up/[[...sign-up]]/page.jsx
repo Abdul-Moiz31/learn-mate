@@ -1,22 +1,22 @@
-import React from "react";
-import { Box, Typography, AppBar, Toolbar, Button } from "@mui/material";
-import { SignIn } from "@clerk/nextjs";
+import Navbar from "../../components/Navbar";
+import { SignUp } from "@clerk/nextjs";
+import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 import Link from "next/link";
+
 
 export default function SignUpPage() {
   return (
-    <>
-      {/* Navigation Bar */}
-      <AppBar position="static" sx={{ backgroundColor: "#3f51b5" }}>
+    <Box>
+       <AppBar position="static" sx={{ backgroundColor: "#3f51b5" }}>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          <Link href="/" passHref>
+            <Link href="/" passHref>
               Flashcard SaaS
             </Link>
           </Typography>
           <Button color="inherit">
-            <Link href="/sign-up" passHref>
-              Sign Up
+            <Link href="/sign-in" passHref>
+              Sign In
             </Link>
           </Button>
         </Toolbar>
@@ -30,11 +30,14 @@ export default function SignUpPage() {
         sx={{ textAlign: "center", my: 4 }}
       >
         <Typography variant="h4" component="h1" gutterBottom>
-          Sign In
+          Sign Up
         </Typography>
-        <SignIn />
+
+
+        <Box sx={{ width: "100%", maxWidth: "400px" }}>
+          <SignUp />
+        </Box>
       </Box>
-      {/* Sign-In Section */}
-    </>
+    </Box>
   );
 }
