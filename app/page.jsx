@@ -5,33 +5,7 @@ import Navbar from "./components/Navbar";
 import Frontcards from "./components/Frontcards";
 import Footer from "./components/Footer";
 import Pricecards from "./components/Pricecards";
-import Image from "next/image";
-import { keyframes } from "@emotion/react";
-
-// Keyframe for floating animation
-const float = keyframes`
-  0% {
-    transform: translatey(0px);
-  }
-  50% {
-    transform: translatey(-20px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
-`;
-
-// Keyframe for hero text animation
-const slideIn = keyframes`
-  0% {
-    opacity: 0;
-    transform: translateX(-80px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-`;
+import AboutUs from "./components/Aboutus";
 
 export default function Home() {
   // Determine screen size
@@ -40,59 +14,73 @@ export default function Home() {
   return (
     <Box>
       <Navbar />
-      <Container>
-        <Box
-          display={"flex"}
-          flexDirection={isSmallScreen ? "column" : "row"}
-          alignItems={"center"}
-          justifyContent={isSmallScreen ? "center" : "space-between"}
-          paddingTop={"4%"}
-          textAlign={isSmallScreen ? "center" : "left"}
+      <Box
+        sx={{
+          backgroundColor: '#000',
+          color: '#fff',
+          minHeight: '55vh',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          padding: '0 20px',
+        }}
+      >
+        <Typography
+          variant="h5"
+          component="div"
+          sx={{ color: '#936DFF', fontWeight: 'bold', marginBottom: '10px' }}
         >
-          <Box
-            display={"flex"}
-            flexDirection={"column"}
-            justifyContent={"center"}
-            sx={{ animation: `${slideIn} 1s ease-out` }}
-          >
-            <Typography variant={isSmallScreen ? "h3" : "h1"} gutterBottom>
-              Rise to <br /> Challenge
-            </Typography>
-            <Typography variant={isSmallScreen ? "h4" : "h3"}>
-              Flashcards for{" "}
-              <span style={{ fontWeight: 600 }}>Future Engineers.</span>
-            </Typography>
-            <Box
-              display={"flex"}
-              flexDirection={isSmallScreen ? "column" : "row"}
-              gap={"1rem"}
-              paddingTop={5}
-            >
-              <Link href="/generate">
-                <Button variant="contained" fullWidth={isSmallScreen}>Get Started</Button>
-              </Link>
-              <Link href="#pricing">
-                <Button variant="outlined" fullWidth={isSmallScreen}>View Pricing</Button>
-              </Link>
-            </Box>
-          </Box>
+          LearnMate
+        </Typography>
 
-          <Box sx={{ animation: `${float} 4s ease-in-out infinite`, mt: isSmallScreen ? 4 : 0 }}>
-            <Image
-              src="/images/hero_bg.png"
-              alt="hero"
-              width={isSmallScreen ? 250 : 320}
-              height={isSmallScreen ? 250 : 320}
-              style={{ objectFit: "contain" }}
-            />
-          </Box>
-        </Box>
-      </Container>
-      <Frontcards />
-      <Divider />
-      <Box id="pricing">
-        <Pricecards />
+        <Typography
+          variant="h2"
+          component="div"
+          sx={{
+            fontWeight: 'bold',
+            lineHeight: '1.2',
+            marginBottom: '20px',
+            fontSize: { xs: '2.5rem', md: '3.75rem' },
+          }}
+        >
+          The ultimate flashcard tool.
+        </Typography>
+
+        <Typography
+          variant="body1"
+          component="div"
+          sx={{
+            marginBottom: '30px',
+            fontSize: '1.125rem',
+            color: '#ccc',
+          }}
+        >
+          Join over 75k+ students and ace your next test with <br /> AI-flashcards from LearnMate.
+        </Typography>
+
+        <Button
+          variant="contained"
+          sx={{
+            backgroundColor: '#936DFF',
+            color: '#fff',
+            padding: '10px 20px',
+            borderRadius: '50px',
+            fontSize: '1rem',
+            fontWeight: 'bold',
+            textTransform: 'none',
+            ':hover': {
+              backgroundColor: '#7d5acc',
+            },
+          }}
+        >
+          Get Started with LearnMate
+        </Button>
       </Box>
+      <AboutUs/>
+      <Frontcards />
+      <Pricecards />
       <Footer />
     </Box>
   );
