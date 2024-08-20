@@ -58,9 +58,10 @@ const Page = () => {
     router.push(`/flashcard?id=${id}`);
   };
 
+
   if ( loading ) return <Loader/>;
   return (
-    <Box>
+    <Box sx={{ backgroundColor: "#000", minHeight: "100vh", color: "#E5E5E5" }}>
       <Navbar />
       <Container maxWidth="md " sx={{ minHeight:"68vh"}}> 
         <Typography variant="h2" sx={{ my: 4 }}>
@@ -70,24 +71,27 @@ const Page = () => {
           <Paper
             sx={{
               p: 4,
-              align: "center",
+              textAlign: "center",
+              backgroundColor: "#1A1A1A",
+              color: "#E5E5E5",
             }}
           >
-            <Typography variant="p" >
+            <Typography variant="body1" component="div">
+
               You don&apos;t have any flashcards yet. <br /> To create one, go
-              to the <Link href="/generate">Create Flashcard</Link> page.
+              to the <Link href="/generate" style={{ color: "#8A2BE2" }}>Create Flashcard</Link> page.
             </Typography>
           </Paper>
         ) : (
           <Grid
             container
             columnSpacing={2}
-            rowSpacing={1}
+            rowSpacing={2}
             sx={{ mt: 4, minHeight: "12rem" }}
           >
             {flashcards.map((flashcard, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card>
+                <Card sx={{ backgroundColor: "#1A1A1A", color: "#E5E5E5" }}>
                   <CardActionArea onClick={() => handleClick(flashcard.name)}>
                     <CardContent>
                       <Typography variant="h5" component="div">
