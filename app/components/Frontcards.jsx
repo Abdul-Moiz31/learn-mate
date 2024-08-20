@@ -16,7 +16,7 @@ const Frontcards = () => {
         <Typography
           variant="h4"
           sx={{
-            color: "#A020F0", // Purple color matching the provided image
+            color: "#936DFF", 
             fontWeight: "bold",
             fontSize: { xs: "2rem", md: "2.5rem" },
             marginBottom: "40px",
