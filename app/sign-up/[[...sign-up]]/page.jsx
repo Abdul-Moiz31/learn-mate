@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function SignUpPage() {
   return (
     <Box>
-       <AppBar position="static" sx={{ backgroundColor: "##1F2937" }}>
+       <AppBar position="static" sx={{ backgroundColor: "#1F2937" }}>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             <Link href="/" passHref>
