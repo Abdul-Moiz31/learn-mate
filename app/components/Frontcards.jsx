@@ -1,42 +1,124 @@
-import React from 'react';
+"use client";
+import React from "react";
+import { Box, Container, Grid, Typography } from "@mui/material";
 
 const Frontcards = () => {
   return (
-    <>
-      <div className="p-4 mt-20 items-center">
-        <h2 className="text-5xl  text-center mb-5">Features</h2>
+    <Box
+      sx={{
+        backgroundColor: "#000000",
+        color: "#D3D3D3",
+        padding: { xs: "50px 20px", md: "70px 80px" },
+        textAlign: "center",
+      }}
+    >
+      <Container maxWidth="lg">
+        <Typography
+          variant="h4"
+          sx={{
+            color: "#A020F0", // Purple color matching the provided image
+            fontWeight: "bold",
+            fontSize: { xs: "2rem", md: "2.5rem" },
+            marginBottom: "40px",
+          }}
+        >
+          Features
+        </Typography>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap -mx-4">
-            <div className="w-full md:w-1/3 px-4">
-              <div className="text-center items-center shadow-md rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-4">Easy Prompt Input</h3>
-                <p style={{ color: '#9395a1' }}>
-                  Quickly generate flashcards from simple text prompts. Streamline your study process with ease.
-                </p>
-              </div>
-            </div>
-            <div className="w-full md:w-1/3 px-4">
-              <div className="text-center items-center shadow-md rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-4">Smart Flashcards</h3>
-                <p style={{ color: '#9395a1' }}>
-                  Sync your flashcards and study progress across devices, allowing you to study anytime, anywhere.
-                </p>
-              </div>
-            </div>
-            <div className="w-full md:w-1/3 px-4 ">
-              <div className="text-center items-center shadow-md rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-4">Flashcards Generated in Minutes</h3>
-                <p style={{ color: '#9395a1' }}>
-                  Customize and create flashcards in minutes. Focus on learning with minimal effort.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+        <Grid container spacing={4}>
+          {/* Feature 1 */}
+          <Grid item xs={12} md={4}>
+            <Box
+              sx={{
+                backgroundColor: "#1a1a1a", // Dark card background
+                borderRadius: "8px",
+                padding: "30px",
+                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                minHeight: "100px", // Ensures all cards have the same minimum height
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{ color: "#D3D3D3", marginBottom: "16px" }}
+              >
+                Easy Prompt Input
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: "#9395a1", lineHeight: 1.6 }}
+              >
+                Quickly generate flashcards from simple text prompts. Streamline
+                your study process with ease.
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Feature 2 */}
+          <Grid item xs={12} md={4}>
+            <Box
+              sx={{
+                backgroundColor: "#1a1a1a", // Dark card background
+                borderRadius: "8px",
+                padding: "30px",
+                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                minHeight: "100px", // Ensures all cards have the same minimum height
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{ color: "#D3D3D3", marginBottom: "16px" }}
+              >
+                Smart Flashcards
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: "#9395a1", lineHeight: 1.6 }}
+              >
+                Sync your flashcards and study progress across devices, allowing
+                you to study anytime, anywhere.
+              </Typography>
+            </Box>
+          </Grid>
+
+          {/* Feature 3 */}
+          <Grid item xs={12} md={4}>
+            <Box
+              sx={{
+                backgroundColor: "#1a1a1a", // Dark card background
+                borderRadius: "8px",
+                padding: "30px",
+                boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.2)",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                minHeight: "150px", // Ensures all cards have the same minimum height
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{ color: "#D3D3D3", marginBottom: "16px" }}
+              >
+                Flashcards Generated in Minutes
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{ color: "#9395a1", lineHeight: 1.6 }}
+              >
+                Customize and create flashcards with in minutes. Focus on your learning
+                with minimal effort.
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+    </Box>
   );
-}
+};
 
 export default Frontcards;
