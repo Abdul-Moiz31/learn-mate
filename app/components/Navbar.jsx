@@ -10,7 +10,7 @@ const Appbar = () => {
     <AppBar sx={{ backgroundColor: "#1f2937" ,position:"relative"}} >
     
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Box flexGrow={1} display="flex"  >
+        <Box  display="flex" >
           <Link href={"/"} style={{ textDecoration: "none" }}>
             <Typography variant="h6" sx={{ color: "white" }}>
               Learn Mate 

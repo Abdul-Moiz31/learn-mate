@@ -18,7 +18,7 @@ export default function Home() {
         sx={{
           backgroundColor: '#000',
           color: '#fff',
-          minHeight: '55vh',
+          minHeight: '65vh',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -63,7 +63,7 @@ export default function Home() {
         <Button
           variant="contained"
           sx={{
-            backgroundColor: '#936DFF',
+            backgroundColor: '#A020F0',
             color: '#fff',
             padding: '10px 20px',
             borderRadius: '50px',
@@ -71,11 +71,15 @@ export default function Home() {
             fontWeight: 'bold',
             textTransform: 'none',
             ':hover': {
-              backgroundColor: '#7d5acc',
+              backgroundColor: '#A020D0',
             },
           }}
+          className="shake-animation"
         >
-          Get Started with LearnMate
+        <Link href="/generate" style={{ color: "#fff" }}>
+        Get Started with LearnMate
+
+        </Link>
         </Button>
       </Box>
       <AboutUs/>
