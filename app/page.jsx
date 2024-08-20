@@ -1,5 +1,5 @@
 "use client";
-import { Box, Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Divider, Typography, useMediaQuery } from "@mui/material";
 import Link from "next/link";
 import Navbar from "./components/Navbar";
 import Frontcards from "./components/Frontcards";
@@ -8,6 +8,9 @@ import Pricecards from "./components/Pricecards";
 import AboutUs from "./components/Aboutus";
 
 export default function Home() {
+  // Determine screen size
+  const isSmallScreen = useMediaQuery('(max-width:600px)');
+
   return (
     <Box>
       <Navbar />
