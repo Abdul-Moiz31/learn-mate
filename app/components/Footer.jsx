@@ -51,13 +51,13 @@ export default function Footer() {
               Contact Us
             </Typography>
             <Box sx={{ mt: 2 }}>
-              <IconButton href="https://www.linkedin.com" target="_blank" sx={{ color: "#E5E5E5" }}>
+              <IconButton href="https://www.linkedin.com/in/im-abdulmoiz/" target="_blank" sx={{ color: "#E5E5E5" }}>
                 <LinkedInIcon />
               </IconButton>
-              <IconButton href="https://github.com" target="_blank" sx={{ color: "#E5E5E5" }}>
+              <IconButton href="https://github.com/Abdul-Moiz31" target="_blank" sx={{ color: "#E5E5E5" }}>
                 <GitHubIcon />
               </IconButton>
-              <IconButton href="mailto:support@omnisets.com" sx={{ color: "#E5E5E5" }}>
+              <IconButton href="mailto:abdulmoiz3140@gmail.com" sx={{ color: "#E5E5E5" }}>
                 <EmailIcon />
               </IconButton>
             </Box>
