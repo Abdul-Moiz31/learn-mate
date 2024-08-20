@@ -17,7 +17,7 @@ const AboutUs = () => {
             <Typography
               variant="h4"
               sx={{
-                color: "#A020F0", // Purple color matching the provided image
+                color: "#936DFF", // Purple color matching the provided image
                 fontWeight: "bold",
                 fontSize: { xs: "2rem", md: "2.5rem" },
                 marginBottom: "20px",
@@ -30,7 +30,7 @@ const AboutUs = () => {
               sx={{
                 width: "60px",
                 height: "4px",
-                backgroundColor: "#A020F0",
+                backgroundColor: "#936DFF",
                 marginBottom: "40px",
               }}
             />
@@ -67,14 +67,14 @@ const AboutUs = () => {
             <Box
               sx={{
                 width: "100%",
-                height: "100%",
-                backgroundColor: "#1a1a1a",
+                height: "80vh",
                 borderRadius: "8px",
-                backgroundImage: "url('/robo.png')",
+                backgroundImage: "url('./robo.png')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
-            ></Box>
+            >
+            </Box>
           </Grid> 
         </Grid>
       </Container>

@@ -153,7 +153,7 @@ export default function Generate() {
             alignItems: "center",
           }}
         >
-          <Typography variant="h4" mb={2}>
+          <Typography variant="h4" mb={2} sx={{color:"#936DFF"}}>
             Generate Flashcards
           </Typography>
           <Paper
@@ -175,8 +175,9 @@ export default function Generate() {
               onClick={handleSubmit}
               fullWidth
               sx={{
-                backgroundColor: "#90caf9",
-                "&:hover": { backgroundColor: "#64b5f6" },
+                backgroundColor: "#5927e4",
+                color: "#fff",
+                "&:hover": { backgroundColor: "#5927e4" },
               }}
             >
               Submit
@@ -261,9 +262,11 @@ export default function Generate() {
               onClick={handleOpen}
               fullWidth
               sx={{
-                backgroundColor: "#90caf9",
-                "&:hover": { backgroundColor: "#64b5f6" },
-                mt: 2,
+                backgroundColor: "#936DFF",
+                color: "#fff",
+                "&:hover": { backgroundColor: "#936DFF" },
+                mt: 4,
+                mb: 2,
               }}
             >
               Save Flashcards
